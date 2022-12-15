@@ -2,9 +2,9 @@
 
 ## This installation has been tested and validated with Ubuntu Server 22.04
 
+show version of Ubuntu:
 ```bash
-root@collector1:~# show version of Ubuntu:
-lsb_release -a && ip r
+root@collector1:~# lsb_release -a && ip r
 
 Output:
 No LSB modules are available.
