@@ -31,6 +31,32 @@ It can also be done by adding the line bellow on: /etc/environment for all your 
 root@collector1:# vi /etc/environment
 Export NO_PROXY="localhost,127.0.0.1,.localdomain,.internal,10.93.178.140,10.93.178.141,10.93.178.142,10.93.178.142,10.93.178.143,10.93.178.144, .cisco.com"
 ```
-
+## Installing InfluxDB on Ubuntu Server:
+```bash
+root@collector1:# apt install influxdb
+root@collector1:# systemctl enable --now influxdb   # Enable InfluxDB to start when the server is restarted
+root@collector1:# systemctl is-enabled influxdb
+root@collector1:# systemctl restart influxdb
+root@collector1:# systemctl status influxdb
+```
+Configure influxdb:
+```bash
+root@collector1:# apt install influxdb-client
+root@collector1:# influx
+Connected to http://localhost:8086 version 1.6.7~rc0
+InfluxDB shell version: 1.6.7~rc0
+> show databases
+> create database mdt_grpc_tls
+> show databases
+> use mdt_grpc_tls
+> show measurements  # This will be empty because when you install the DB there is no measurements created.
+```
+In case you want to use a specific username/password for the connection to the database in a remote location (not local):
+If you define a user/pass, these credentials will be used by Grafana and Telegraf to connect to the Database.
+```bash
+root@collector1:# influx
+> create user admin with password 'C1sco12345' with all privileges 
+> show users
+```
 
 
