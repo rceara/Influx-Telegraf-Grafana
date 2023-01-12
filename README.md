@@ -99,7 +99,8 @@ tcp6       0      0 :::57500                :::*                    LISTEN      
 tcp6       0      0 :::22                   :::*                    LISTEN      1290/sshd: /usr/sbi 
 udp        0      0 127.0.0.53:53           0.0.0.0:*                           769/systemd-resolve 
 ```
-Sniff of the telegraf.conf config on /etc/telegraf with a local influxDB. Keep in mind that you need to copy the certs to the server inside the directory defined in telegraf.conf file. In this case certs are defined /etc/telegraf/mtls/
+Sniff of the telegraf.conf config on /etc/telegraf with a local influxDB. Keep in mind that you need to copy the certs to the server inside the directory defined in telegraf.conf file. In this case certs are defined /etc/telegraf/mtls/ 
+The process to generate the certs can be done with the procedure explained in this link: https://github.com/rceara/OpenSSL_Certificate_Generation
 ```bash
 root@collector1:# more /etc/telegraf/telegraf.conf 
 # Global Agent Configuration
